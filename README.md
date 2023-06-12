@@ -5,7 +5,8 @@
 > *Image watermarked with a wall titan in my PC.*
 
 ## Features
-* Uses `customtkinter` for some nice visuals. `pip install customtkinter`
+* Uses `customtkinter` for some nice visuals. 
+    * To use, in your terminal, run: `pip install customtkinter`
     * This can be changed in `main.py` if you prefer to use Python's standard `tkinter`.
 * Add text watermark to image with any given size, color, and opacity.
 * Add an image watermark (logo) at any given opacity.
