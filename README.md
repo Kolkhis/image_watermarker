@@ -21,6 +21,11 @@ To use, navigate to the project directory and run:
 Uncomment the import from `app.py` and comment the import from `custom_gui.py`:
 > ![Use Tkinter Instead of CustomTkinter](https://github.com/Kolkhis/image_watermarker/assets/36500473/42f20e90-b1f3-4060-b2c0-1b8427ff2434)
 
+### Font Colors
+Choose any font color you want for the watermark text.
+![Font Colors Demo](https://github.com/Kolkhis/image_watermarker/assets/36500473/d311b22b-69ea-4f16-a65d-3f003f0a779f)
+
+
 ## Features to be Added
 * Add option to watermark multiple parts of an image at the same time.
 
