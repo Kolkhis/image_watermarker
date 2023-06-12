@@ -9,11 +9,6 @@ FONT = ('Verdana', 12)
 BG_COLOR = '#454545'
 FG_COLOR = '#F4EEE0'
 
-# '#454545'  -  Dark Grey
-# fg='#F4EEE0', bg='#393646'
-        # TODO: Add RGB Selector (or color list with predefined RGB values?) [x]
-        # TODO: Add an option for text to stripe across the entire image.    [ ]
-        # TODO: Add a checkbox to populate all 9 positions with watermark.   [ ]
 
 class Root(tk.Tk):
     def __init__(self):
