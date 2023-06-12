@@ -38,7 +38,12 @@ Choose any font color you want for the watermark text.
 * Provide precision control over text watermark location.
 
 ## Donations
-Want to support me? [Buy me a coffee!](https://www.paypal.com/donate/?hosted_button_id=5P6PCGASNHHRY)
+Want to support me?
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A0A4M7MV7) 
+
+[![PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=5P6PCGASNHHRY)
+
 
 Feedback and suggestions are appreciated!
 
