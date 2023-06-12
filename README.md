@@ -13,7 +13,7 @@ To use, navigate to the project directory and run:
 * Uses `opencv-python` to manipulate images.
     * If you didn't install from `requirements.txt`: `pip install opencv-python`
 * Uses `customtkinter` for some nice visuals. 
-    * * If you didn't install from `requirements.txt`: `pip install customtkinter`
+    * If you didn't install from `requirements.txt`: `pip install customtkinter`
     * This can be changed in `main.py` if you prefer to use Python's standard `tkinter`.
 * Add text watermark to image with any given size, color, and opacity.
 * Add an image watermark (logo) at any given opacity.
