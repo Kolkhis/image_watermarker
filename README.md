@@ -35,7 +35,11 @@ Choose any font color you want for the watermark text.
 
 ## Features to be Added
 * Add option to watermark multiple parts of an image at the same time.
+* Provide precision control over text watermark location.
+
+## Donations
+Want to support me? [Buy me a coffee!](https://www.paypal.com/donate/?hosted_button_id=5P6PCGASNHHRY)
 
 Feedback and suggestions are appreciated!
-Want to support me? [Buy me a coffee!](https://www.paypal.com/donate/?hosted_button_id=5P6PCGASNHHRY)
+
 
