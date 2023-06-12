@@ -4,9 +4,14 @@
 ![Watermarked Image](https://github.com/Kolkhis/image_watermarker/assets/36500473/1382e4d0-f4dd-4f31-8587-e1205e6d07b9)
 > *Image watermarked with a wall titan in my PC.*
 
+To use, navigate to the project directory and run: 
+`pip install -r requirements.txt`
+
 ## Features
+* Uses `opencv-python` to manipulate images.
+    * If you didn't install from `requirements.txt`: `pip install opencv-python`
 * Uses `customtkinter` for some nice visuals. 
-    * To use, in your terminal, run: `pip install customtkinter`
+    * * If you didn't install from `requirements.txt`: `pip install customtkinter`
     * This can be changed in `main.py` if you prefer to use Python's standard `tkinter`.
 * Add text watermark to image with any given size, color, and opacity.
 * Add an image watermark (logo) at any given opacity.
