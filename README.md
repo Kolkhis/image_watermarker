@@ -3,7 +3,8 @@
 
 ![Watermarked Image](https://github.com/Kolkhis/image_watermarker/assets/36500473/1382e4d0-f4dd-4f31-8587-e1205e6d07b9)
 > *Image watermarked with a wall titan in my PC.*
-> May look different on your PC. Application theme follows your system theme.
+
+May look different on your PC. Application theme follows your system theme.
 
 To use, navigate to the project directory and run: 
 `pip install -r requirements.txt`
