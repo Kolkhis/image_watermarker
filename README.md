@@ -1,6 +1,10 @@
 # Image Watermarker
 ## For those of us who don't want to pay for a fancy image editor.
 
+![Python Version](https://img.shields.io/pypi/pyversions/opencv-python)
+![OpenCV Version](https://img.shields.io/badge/OpenCV%20Python-v4.7.0.72-5C3EE8?&logo=OpenCV)
+![CustomTkinter Version](https://img.shields.io/badge/CustomTkinter-v5.3.1-blue?&logo=CustomTkinter)
+
 ![Watermarked Image](https://github.com/Kolkhis/image_watermarker/assets/36500473/1382e4d0-f4dd-4f31-8587-e1205e6d07b9)
 > *Image watermarked with a wall titan in my PC.*
 
