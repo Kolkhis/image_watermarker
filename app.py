@@ -6,7 +6,11 @@ from PIL import ImageTk, Image
 from cv_handler import Watermarker
 
 FONT = ('Verdana', 12)
+BG_COLOR = '#454545'
+FG_COLOR = '#F4EEE0'
 
+# '#454545'  -  Dark Grey
+# fg='#F4EEE0', bg='#393646'
         # TODO: Add RGB Selector (or color list with predefined RGB values?) [x]
         # TODO: Add an option for text to stripe across the entire image.    [ ]
         # TODO: Add a checkbox to populate all 9 positions with watermark.   [ ]
@@ -29,51 +33,54 @@ class Root(tk.Tk):
         self.screen_height = self.winfo_screenheight()
         self.resizable = True
 
+        # Change root color scheme
+        self.configure(background=BG_COLOR)
+
         # Image Upload
-        self.img_upload_label = tk.Label(self, text='Upload an image:', font=FONT, anchor='e')
+        self.img_upload_label = tk.Label(self, text='Upload an image:', font=FONT, anchor='e', fg='#F4EEE0', bg=BG_COLOR)
         self.img_upload_label.grid(column=0, row=0, padx=10, pady=10, sticky='ew')
         self.img_upload_button = ttk.Button(self, text='Open Image', command=self.upload_pic)
         self.img_upload_button.grid(column=1, row=0, padx=20, pady=10, sticky='ew')
 
         # Logo Upload
-        self.logo_upload_label = tk.Label(self, text='Upload a logo:', font=FONT, anchor='e')
+        self.logo_upload_label = tk.Label(self, text='Upload a logo:', font=FONT, anchor='e', fg='#F4EEE0', bg=BG_COLOR)
         self.logo_upload_label.grid(column=0, row=1, padx=10, pady=10, sticky='ew')
         self.logo_upload_button = ttk.Button(self, text='Add Logo', command=self.upload_logo)
         self.logo_upload_button.grid(column=1, row=1, padx=20, pady=10, sticky='ew')
         self.logo_upload_button['state'] = 'disabled'
 
         # Watermark Text
-        self.watermark_text_frame = tk.Frame(self, height=200)
+        self.watermark_text_frame = tk.Frame(self, height=200, bg=BG_COLOR)
         self.watermark_text_frame.grid(column=0, row=2, columnspan=2, rowspan=4,)
-        self.watermark_text_label = tk.Label(self.watermark_text_frame, text='Use text:', font=FONT, anchor='e')
+        self.watermark_text_label = tk.Label(self.watermark_text_frame, text='Use text:', font=FONT, anchor='e', fg='#F4EEE0', bg=BG_COLOR)
         self.watermark_text_label.grid(column=0, row=0, sticky='ew', padx=20)
 
         self.text = tk.StringVar()
-        self.watermark_text = ttk.Entry(self.watermark_text_frame, textvariable=self.text)
+        self.watermark_text = ttk.Entry(self.watermark_text_frame, textvariable=self.text,)
         self.watermark_text.grid(column=1, row=0, padx=20, pady=10, sticky='ew')
 
         # Text Size Slider
-        self.text_size_label = tk.Label(self.watermark_text_frame, text='Text Size:', font=FONT, anchor='e')
+        self.text_size_label = tk.Label(self.watermark_text_frame, text='Text Size:', font=FONT, anchor='e', fg='#F4EEE0', bg=BG_COLOR)
         self.text_size_label.grid(column=0, row=1, sticky='ew', padx=20, pady=10)
         self.text_size_slider = ttk.Scale(self.watermark_text_frame, from_=0.5, to=4, orient='horizontal')
         self.text_size_slider.grid(column=1, row=1, sticky='ew', padx=20, pady=10)
 
         # Text Thickness Slider
-        self.text_thickness_label = tk.Label(self.watermark_text_frame, text='Text Thickness:', font=FONT, anchor='e')
+        self.text_thickness_label = tk.Label(self.watermark_text_frame, text='Text Thickness:', font=FONT, anchor='e', fg='#F4EEE0', bg=BG_COLOR)
         self.text_thickness_label.grid(column=0, row=2, sticky='ew', padx=20, pady=10)
         self.text_thickness_slider = ttk.Scale(self.watermark_text_frame, from_=0.0, to=10, orient='horizontal')
         self.text_thickness_slider.grid(column=1, row=2, sticky='ew', padx=20, pady=10)
 
         # Opacity Slider
-        self.overlay_label = tk.Label(self.watermark_text_frame, text='Watermark Opacity:', font=FONT, anchor='e')
+        self.overlay_label = tk.Label(self.watermark_text_frame, text='Watermark Opacity:', font=FONT, anchor='e', fg='#F4EEE0', bg=BG_COLOR)
         self.overlay_label.grid(column=0, row=3, padx=20, pady=10, sticky='ew')
         self.overlay_slider = ttk.Scale(self.watermark_text_frame, from_=0.0, to=100, orient='horizontal', command=self.update_image)
         self.overlay_slider.grid(column=1, row=3, padx=20, pady=10, sticky='ew')
 
         # Font Options
-        self.font_choice_frame = tk.Frame(self)
+        self.font_choice_frame = tk.Frame(self, bg=BG_COLOR)
         self.font_choice_frame.grid(column=0, row=6, columnspan=2, rowspan=2, sticky='ew', pady=10)
-        self.font_choice_label = tk.Label(self.font_choice_frame, text='Font Type:', font=FONT, anchor='e')
+        self.font_choice_label = tk.Label(self.font_choice_frame, text='Font Type:', font=FONT, anchor='e', fg='#F4EEE0', bg=BG_COLOR)
         self.font_choice_label.grid(column=0, row=0, padx=20, sticky='ew')
         self.font_choice = tk.StringVar()
         self.font_choices = ttk.Combobox(self.font_choice_frame, textvariable=self.font_choice)
@@ -82,7 +89,7 @@ class Root(tk.Tk):
         self.font_choices.set('Sans Serif')
         self.font_choice.set('Sans Serif')
         self.font_choices.grid(column=1, row=0, padx=20, pady=10, sticky='ew')
-        self.font_color_label = tk.Label(self.font_choice_frame, text='Change Text Color:', font=FONT, anchor='e')
+        self.font_color_label = tk.Label(self.font_choice_frame, text='Change Text Color:', font=FONT, anchor='e', fg='#F4EEE0', bg=BG_COLOR)
         self.font_color_label.grid(column=0, row=1, padx=20, sticky='ew')
         self.font_color_button = ttk.Button(self.font_choice_frame, text='Choose Color', command=self.set_font_color)
         self.font_color_button.grid(column=1, row=1, padx=20, sticky='ew')
@@ -90,34 +97,34 @@ class Root(tk.Tk):
 
         # Watermark Position Selection
         self.logo_position = tk.StringVar()
-        self.radio_frame = tk.Frame(self)
+        self.radio_frame = tk.Frame(self, bg=BG_COLOR)
         self.radio_frame.grid(column=0, row=8, columnspan=2, pady=10)
-        self.radio_label = tk.Label(self.radio_frame, text='Select Watermark Position')
+        self.radio_label = tk.Label(self.radio_frame, text='Select Watermark Position', fg='#F4EEE0', bg=BG_COLOR)
         self.radio_label.grid(column=0, row=0, padx=20, sticky='ew', columnspan=3)
 
         self.top_left_radio = tk.Radiobutton(self.radio_frame, text='Top Left', value='top_left',
-                                             variable=self.logo_position, command=self.update_image)
-        self.left_radio = tk.Radiobutton(self.radio_frame, text='Left', value='left', variable=self.logo_position, command=self.update_image)
+                                             variable=self.logo_position, command=self.update_image, fg='#F4EEE0', bg=BG_COLOR, selectcolor=BG_COLOR)
+        self.left_radio = tk.Radiobutton(self.radio_frame, text='Left', value='left', variable=self.logo_position, command=self.update_image, fg='#F4EEE0', bg=BG_COLOR, selectcolor=BG_COLOR)
         self.bottom_left_radio = tk.Radiobutton(self.radio_frame, text='Bottom Left', value='bottom_left',
-                                                variable=self.logo_position, command=self.update_image)
+                                                variable=self.logo_position, command=self.update_image, fg='#F4EEE0', bg=BG_COLOR, selectcolor=BG_COLOR)
         self.top_left_radio.grid(column=0, row=1, sticky='w', padx=10)
         self.left_radio.grid(column=0, row=2, sticky='w', padx=10)
         self.bottom_left_radio.grid(column=0, row=3, sticky='w', padx=10)
 
         self.center_top_radio = tk.Radiobutton(self.radio_frame, text='Top', value='top_center',
-                                               variable=self.logo_position, command=self.update_image)
-        self.center_radio = tk.Radiobutton(self.radio_frame, text='Center', value='center', variable=self.logo_position, command=self.update_image)
+                                               variable=self.logo_position, command=self.update_image, fg='#F4EEE0', bg=BG_COLOR, selectcolor=BG_COLOR)
+        self.center_radio = tk.Radiobutton(self.radio_frame, text='Center', value='center', variable=self.logo_position, command=self.update_image, fg='#F4EEE0', bg=BG_COLOR, selectcolor=BG_COLOR)
         self.center_bottom_radio = tk.Radiobutton(self.radio_frame, text='Bottom', value='bottom_center',
-                                                  variable=self.logo_position, command=self.update_image)
+                                                  variable=self.logo_position, command=self.update_image, fg='#F4EEE0', bg=BG_COLOR, selectcolor=BG_COLOR)
         self.center_top_radio.grid(column=1, row=1, sticky='w', padx=20)
         self.center_radio.grid(column=1, row=2, sticky='w', padx=20)
         self.center_bottom_radio.grid(column=1, row=3, sticky='w', padx=20)
 
-        self.top_right_radio = tk.Radiobutton(self.radio_frame, text='Top Right', value='top_right',
-                                              variable=self.logo_position, command=self.update_image)
-        self.right_radio = tk.Radiobutton(self.radio_frame, text='Right', value='right', variable=self.logo_position, command=self.update_image)
+        self.top_right_radio = tk.Radiobutton(self.radio_frame, text='Top Right', value='top_right', fg='#F4EEE0', bg=BG_COLOR,
+                                              variable=self.logo_position, command=self.update_image, selectcolor=BG_COLOR)
+        self.right_radio = tk.Radiobutton(self.radio_frame, text='Right', value='right', variable=self.logo_position, command=self.update_image, fg='#F4EEE0', bg=BG_COLOR, selectcolor=BG_COLOR)
         self.bottom_right_radio = tk.Radiobutton(self.radio_frame, text='Bottom Right', value='bottom_right',
-                                                 variable=self.logo_position, command=self.update_image)
+                                                 variable=self.logo_position, command=self.update_image, fg='#F4EEE0', bg=BG_COLOR, selectcolor=BG_COLOR)
         self.top_right_radio.grid(column=2, row=1, sticky='w')
         self.right_radio.grid(column=2, row=2, sticky='w')
         self.bottom_right_radio.grid(column=2, row=3, sticky='w')
@@ -130,7 +137,7 @@ class Root(tk.Tk):
         self.save_button.grid(column=0, row=9, padx=20, pady=10, sticky='ew')
         self.save_button['state'] = 'disabled'
 
-        self.canvas = tk.Canvas(self, width=1080, height=800, borderwidth=1, bg='grey')
+        self.canvas = tk.Canvas(self, width=1080, height=800, borderwidth=1, bg='grey', highlightthickness=0)
         self.canvas.grid(column=2, row=0, rowspan=10, padx=9, pady=10)
         self.watermarker = Watermarker(screen_width=self.screen_width, screen_height=self.screen_height)
 
