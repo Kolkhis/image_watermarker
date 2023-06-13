@@ -79,10 +79,13 @@ class Root(tk.Tk):
         self.font_choice_label.grid(column=0, row=0, padx=20, sticky='ew')
         self.font_choice = tk.StringVar()
         self.font_choices = ttk.Combobox(self.font_choice_frame, textvariable=self.font_choice)
-        self.font_choices['values'] = ('Sans Serif', 'Serif', 'Cursive')
+
+        self.font_choices['values'] = ('Sans Serif 1', 'Sans Serif 2', 'Sans Serif (small)', 'Serif 1', 'Serif 2', 'Serif (small)', 'Cursive 1', 'Cursive 2',)
+        self.font_choices.set('Sans Serif 1')
         self.font_choices['state'] = 'readonly'
-        self.font_choices.set('Sans Serif')
-        self.font_choice.set('Sans Serif')
+        self.font_choices.set('Sans Serif 1')
+        # self.font_choice.set('Sans Serif 1')
+
         self.font_choices.grid(column=1, row=0, padx=20, pady=10, sticky='ew')
         self.font_color_label = tk.Label(self.font_choice_frame, text='Change Text Color:', font=FONT, anchor='e', fg='#F4EEE0', bg=BG_COLOR)
         self.font_color_label.grid(column=0, row=1, padx=20, sticky='ew')
@@ -134,7 +137,9 @@ class Root(tk.Tk):
 
         self.canvas = tk.Canvas(self, width=1080, height=800, borderwidth=1, bg='grey', highlightthickness=0)
         self.canvas.grid(column=2, row=0, rowspan=10, padx=9, pady=10)
-        self.watermarker = Watermarker(screen_width=self.screen_width, screen_height=self.screen_height)
+        self.watermarker = Watermarker(screen_width=int(self.canvas.winfo_width()), 
+                                       screen_height=int(self.canvas.winfo_height()),
+                                       max_screen_height=self.screen_height)
 
     def upload_pic(self):
         self.img_filepath = filedialog.askopenfilename()
