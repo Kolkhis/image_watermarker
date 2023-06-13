@@ -37,7 +37,7 @@ Choose any font color you want for the watermark text.
 * Add option to watermark multiple parts of an image at the same time.
 * Provide precision control over text watermark location.
 
-## Donations
+## Sponsor
 Want to support me?
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A0A4M7MV7) 
