@@ -42,8 +42,6 @@ Want to support me?
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A0A4M7MV7) 
 
-[![PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=5P6PCGASNHHRY)
-
 
 Feedback and suggestions are appreciated!
 
